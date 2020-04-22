@@ -61,7 +61,6 @@ The GDC workflow repositories has been tested on GDC data and in the particular 
 - Include CaVEMan (point mutation), Pindel (small indel), BRASS (structural variation), and ascatNGS (copy number variation)
 - Main CWL: https://github.com/NCI-GDC/gdc-sanger-somatic-cwl
 - Utility scripts: https://github.com/NCI-GDC/gdc-sanger-somatic-tool
-- We are still working on these, and will make them public soon
 
 ### VEP Variant Annotation
 - VEP based variant annotation workflow
