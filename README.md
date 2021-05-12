@@ -18,26 +18,26 @@ The GDC workflow repositories has been tested on GDC data and in the particular 
 ## Production Workflows Include
 
 ### DNA-Seq Alignment
-- BWA based alignment workflow for Whole Exome Sequencing (WXS), Whole Genome Sequencing (WGS), Targeted Sequencing, and some other DNA-Seq experimental strategies
+- BWA based alignment workflow for Whole Exome Sequencing (WXS), Whole Genome Sequencing (WGS), Targeted Sequencing, and some other DNA-Seq experimental strategies. The workflow takes either BAM or FASTQ files as input, performs reads mapping, and optional steps of Base Quality Score Recalibration (BQSR), Indel Realignment, MarkDuplicates, and outputs a sorted BAM file, a BAM index file, and various QC metrics.  
 - Main CWL: https://github.com/NCI-GDC/gdc-dnaseq-cwl 
 
 ### RNA-Seq Alignment
-- STAR based RNA-Seq alignment workflow that generates 3 BAMs (Genome Aligned BAM, Transcriptome Aligned BAM, Chimeric BAM), STAR Counts, and Splice Junction Quantifications
+- STAR based RNA-Seq alignment workflow that takes either BAM and FASTQ files as input, and generates 3 BAMs (Genome Aligned BAM, Transcriptome Aligned BAM, Chimeric BAM), STAR Counts, and Splice Junction Quantifications. Among the 3 BAMs generated, Transcriptome aligned BAM is read name sorted instead of coordinate sorted, so it is not companioned by a BAM index file. In addition, the STAR Counts file contains quantification in 3 different ways: strandless mode and two different stranded modes.
 - Main CWL: https://github.com/NCI-GDC/gdc-rnaseq-cwl
 - Utility scripts: https://github.com/NCI-GDC/gdc-rnaseq-tool 
 
 ### miRNA Alignment and Profiling
-- miRNA alignment and quantification workflow adopted from https://github.com/bcgsc/mirna
+- miRNA alignment and quantification workflow adopted from https://github.com/bcgsc/mirna. The workflow takes an adaptor-trimmed BAM as input, performs reads mapping, and outputs a sorted BAM file, a BAM index file, miRNA expression, and miRNA isoform expression. 
 - Main CWL: https://github.com/NCI-GDC/gdc-mirnaseq-cwl 
 - Docker file: https://github.com/NCI-GDC/mirna-profiler-docker 
 
 ### RNA-Seq HTSeq Quantification
-- RNA-Seq HTSeq quantification workflow, assuming strandless to maximize compatibility 
+- RNA-Seq HTSeq quantification workflow takes a GDC aligned RNA-Seq BAM file as input, and outputs HTSeq gene-level qualitifications with various normalization methods. The workflow assumes strandless to maximize compatibility across all GDC projects.
 - Main CWL: https://github.com/NCI-GDC/htseq-cwl
 - Utility scripts: https://github.com/NCI-GDC/htseq-tool
 
 ### WXS Variant Calling
-- 4 Tumor-normal paired somatic mutation calling workflow for WXS (or Targeted Sequencing) data
+- 4 Tumor-normal paired somatic mutation calling workflow for WXS (or Targeted Sequencing) data. The workflow takes a tumor-tissue BAM and a normal-tissue BAM from the same case, and generates raw calling VCFs, and VCF indexes.  
 - As a single combined workflow or run individual callers: GATK3 MuTect2, MuSE, VarScan2, SomaticSniper
 - Combined workflow: https://github.com/NCI-GDC/gdc-somatic-variant-calling-workflow 
 - MuSE module: https://github.com/NCI-GDC/muse-cwl
@@ -52,18 +52,17 @@ The GDC workflow repositories has been tested on GDC data and in the particular 
 - Samtools docker file: https://github.com/NCI-GDC/samtools-mpileup-tool
 
 ### WXS Variant Filtering
-- VCF filtering workflow 
+- VCF filtering workflow. GDC internal VCF filtering and formating workflow that runs between variant calling and variant annotation steps. Direct outputs of this workflow are not present in the GDC portal, but rather, used as inputs for the VEP Variant Annotation workflow.  
 - Main CWL: https://github.com/NCI-GDC/variant-filtration-cwl 
 - Utility scripts: https://github.com/NCI-GDC/variant-filtration-tool
 
 ### WGS Variant Calling
-- Tumor-normal paried somatic mutation calling workflow for WGS data, adopted from https://github.com/cancerit/dockstore-cgpwgs
-- Include CaVEMan (point mutation), Pindel (small indel), BRASS (structural variation), and ascatNGS (copy number variation)
+- Tumor-normal paried somatic mutation calling workflow for WGS data, adopted from https://github.com/cancerit/dockstore-cgpwgs. The workflow takes a tumor-tissue BAM and a normal-tissue BAM from the same case, and generates simple somatic mutations with CaVEMan and Pindel in VCF format, structural variation with BRASS in VCF and BedPE formats, and copy number variation with ascatNGS in segmentation and gene-level copy number TSV formats.
 - Main CWL: https://github.com/NCI-GDC/gdc-sanger-somatic-cwl
 - Utility scripts: https://github.com/NCI-GDC/gdc-sanger-somatic-tool
 
 ### VEP Variant Annotation
-- VEP based variant annotation workflow
+- VEP based variant annotation workflow that provide functional annotations to each variant in the VCFs.
 - Main CWL: https://github.com/NCI-GDC/vep-cwl 
 - Utility scripts: https://github.com/NCI-GDC/vep-tool 
 
@@ -76,6 +75,7 @@ The GDC workflow repositories has been tested on GDC data and in the particular 
 
 ## One-off Workflows Include
 ### SNP6 Segmentation
+- The workflow applies Circular Binary Segmentation to existing BirdSeed probe-level copy numbers, and generates copy number segmentation files and gene-level copy number TSVs.
 - Utility scripts: https://github.com/NCI-GDC/dnacopy-tool
 
 
