@@ -46,9 +46,9 @@ The GDC workflow repositories has been tested on GDC data and in the particular 
 - MuTect2 module: https://github.com/NCI-GDC/mutect2-cwl 
 - Samtools module: https://github.com/NCI-GDC/samtools-mpileup-cwl
 - MuSE docker file: https://github.com/NCI-GDC/muse-tool
-- MuTect2 docker file: https://github.com/NCI-GDC/somaticsniper-tool
+- SomaticSniper docker file: https://github.com/NCI-GDC/somaticsniper-tool
 - VarScan2 docker file: https://github.com/NCI-GDC/varscan-tool
-- SomaticSniper docker file: https://github.com/NCI-GDC/mutect2-tool
+- MuTect2 docker file: https://github.com/NCI-GDC/mutect2-tool
 - Samtools docker file: https://github.com/NCI-GDC/samtools-mpileup-tool
 
 ### WXS Variant Filtering
