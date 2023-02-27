@@ -57,9 +57,14 @@ The GDC workflow repositories has been tested on GDC data and in the particular 
 - Utility scripts: https://github.com/NCI-GDC/variant-filtration-tool
 
 ### WGS Variant Calling
-- Tumor-normal paried somatic mutation calling workflow for WGS data, adopted from https://github.com/cancerit/dockstore-cgpwgs. The workflow takes a tumor-tissue BAM and a normal-tissue BAM from the same case, and generates simple somatic mutations with CaVEMan and Pindel in VCF format, structural variation with BRASS in VCF and BedPE formats, and copy number variation with ascatNGS in segmentation and gene-level copy number TSV formats.
+- Tumor-normal paired somatic mutation calling workflow for WGS data, adopted from https://github.com/cancerit/dockstore-cgpwgs. The workflow takes a tumor-tissue BAM and a normal-tissue BAM from the same case, and generates simple somatic mutations with CaVEMan and Pindel in VCF format, structural variation with BRASS in VCF and BedPE formats, and copy number variation with ascatNGS in segmentation and gene-level copy number TSV formats.
 - Main CWL: https://github.com/NCI-GDC/gdc-sanger-somatic-cwl
 - Utility scripts: https://github.com/NCI-GDC/gdc-sanger-somatic-tool
+
+### Tumor-only Variant Calling
+- Tumor-only somatic mutation calling workfow for DNA-Seq. The workflow takes a tumor-tissue BAM and generates simple somatic mutations with GATK4 MuTect2 in VCF format. The raw calls are further tagged by PureCN (https://github.com/lima1/PureCN) for somatic status prediction. The resulting VCF from the tumor-only variant calling workflow can be further annotated using VEP Variant Annotation workflow and converted into MAF files using MAF Generation workflows. 
+- Main CWL: https://github.com/NCI-GDC/gatk4_mutect2_cwl
+- Utility scripts: https://github.com/NCI-GDC/gatk4-mutect2-tool
 
 ### VEP Variant Annotation
 - VEP based variant annotation workflow that provide functional annotations to each variant in the VCFs.
