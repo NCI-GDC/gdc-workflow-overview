@@ -88,6 +88,8 @@ The GDC workflow repositories has been tested on GDC data and in the particular 
 - The workflow applies Circular Binary Segmentation to existing BirdSeed probe-level copy numbers, and generates copy number segmentation files and gene-level copy number TSVs.
 - Utility scripts: https://github.com/NCI-GDC/dnacopy-tool
 
+## Other Essential Data
 
-
-
+### Target Capture Kit
+- target_capture_kit is an enumerated property on the ReadGroup node, and a value other than Unknown or Not Applicable is required for read groups that are associated to WXS and Targeted Sequencing strategies. 
+- Unfortunately we can not share the Target Capture Kit bed files in public because of policy restrictions from some kit vendors. You are able to find the corresponding size (in bps) of each kit in this file (https://github.com/NCI-GDC/gdc-workflow-overview/blob/master/gdc_target_capture_kit_size.tsv) for Tumor Mutation Burden (TMB) analysis. Please note some of these files arrive GDC in hg19 reference build and some in GRCh38 (hg38) reference build, so we labeled them in separate columns in the file.
