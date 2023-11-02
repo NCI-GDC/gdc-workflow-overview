@@ -78,8 +78,8 @@ The GDC workflow repositories has been tested on GDC data and in the particular 
 
 ### Mutation Annotation File (MAF)
 - MAF generation workflows 
-- MAF schema: https://github.com/NCI-GDC/maf-lib/tree/master/src/maflib/resources
-- MAF library: https://github.com/NCI-GDC/maf-lib (maf library)
+- MAF schema: https://github.com/NCI-GDC/maf-lib/tree/main/maflib/schemas
+- MAF library: https://github.com/NCI-GDC/maf-lib
 - Main CWL: https://github.com/NCI-GDC/aliquot-maf-cwl
 - Utility scripts: https://github.com/NCI-GDC/aliquot-maf-tools
 
