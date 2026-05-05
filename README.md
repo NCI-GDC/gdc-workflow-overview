@@ -57,9 +57,11 @@ The GDC workflow repositories has been tested on GDC data and in the particular 
 - Utility scripts: https://github.com/NCI-GDC/variant-filtration-tool
 
 ### WGS Variant Calling
-- Tumor-normal paired somatic mutation calling workflow for WGS data, adopted from https://github.com/cancerit/dockstore-cgpwgs. The workflow takes a tumor-tissue BAM and a normal-tissue BAM from the same case, and generates simple somatic mutations with CaVEMan and Pindel in VCF format, structural variation with BRASS in VCF and BedPE formats, and copy number variation with ascatNGS in segmentation and gene-level copy number TSV formats.
-- Main CWL: https://github.com/NCI-GDC/gdc-sanger-somatic-cwl
-- Utility scripts: https://github.com/NCI-GDC/gdc-sanger-somatic-tool
+- Tumor-normal paired somatic mutation calling workflow for WGS data. 
+- The current workflows take a tumor-tissue BAM and a normal-tissue BAM from the same case, and generates simple somatic mutations with VarScan2, MuTect2, Strelka2 and SvABA Indel in VCF format, structural variation with SvABA and Manta in VCF and BedPE formats, copy number variation with GATK4 CNV in segmentation and gene-level copy number with ABSOLUTE in TSV formats. We are currently working on making these workflow repos in public. 
+- The retired WGS Variant Calling workflows adopted from https://github.com/cancerit/dockstore-cgpwgs generates simple somatic mutations with CaVEMan and Pindel in VCF format, structural variation with BRASS in VCF and BedPE formats, and copy number variation with ascatNGS in segmentation and gene-level copy number TSV formats.
+- (Retired) Main CWL: https://github.com/NCI-GDC/gdc-sanger-somatic-cwl
+- (Retired) Utility scripts: https://github.com/NCI-GDC/gdc-sanger-somatic-tool
 
 ### Tumor-only Variant Calling
 - Tumor-only somatic mutation calling workfow for DNA-Seq. The workflow takes a tumor-tissue BAM and generates simple somatic mutations with GATK4 MuTect2 in VCF format. 
